@@ -1,0 +1,55 @@
+.blog_details{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+    width: 40%;
+    text-align: justify;
+    /* background-color: blueviolet; */
+    margin: 30px auto;
+    
+}
+.blog_details_title{
+    font-family: "Poppins", sans-serif;
+    font-size: 2rem;
+}
+.tags {
+    display: flex;
+    gap: 1rem;
+
+}
+
+.tags p {
+    text-align: center;
+    background-color: #F6FF00;
+    padding: 4px;
+    width: 30px;
+    border-radius: 20px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-size: 0.7rem;
+
+}
+
+.blog_details_description{
+    font-family: "Poppins", sans-serif;
+
+}
+
+.views{
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    font-family: "Poppins", sans-serif;
+}
+.blog_details_bottom{
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.blog_details_likes{
+    font-family: "Poppins", sans-serif;
+
+}

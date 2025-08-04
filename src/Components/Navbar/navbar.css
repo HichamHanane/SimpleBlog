@@ -1,0 +1,44 @@
+
+
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 35px;
+    font-family: "Poppins", sans-serif;
+}
+
+.header .logo .logo_link{
+    font-family: "Kaushan Script", cursive;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+.navLinks{
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+}
+.navLinks button{
+    background-color: #F6FF00;
+    box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.301);
+    border: none;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.navLinks button:hover{
+    box-shadow: none;
+}
+
+.navLinks .navLink{
+    text-decoration: none;
+    font-weight: 500;
+}
