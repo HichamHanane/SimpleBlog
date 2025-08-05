@@ -4,6 +4,7 @@ import Navbar from '../Navbar/Navbar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faThumbsDown, faThumbsUp } from '@fortawesome/free-regular-svg-icons'
 import { useState } from 'react'
+import Footer from '../Footer/Footer'
 
 
 function BlogDetails() {
@@ -52,6 +53,7 @@ function BlogDetails() {
                     </div>
                 </div>
             </article>
+            <Footer />
         </>
     )
 }

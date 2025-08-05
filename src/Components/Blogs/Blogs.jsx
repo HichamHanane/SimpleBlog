@@ -7,12 +7,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faThumbsUp } from '@fortawesome/free-regular-svg-icons'
 import axios from 'axios'
 import BlogDetails from '../BlogDetails/BlogDetails'
+import Footer from '../Footer/Footer'
 
 
 function Blogs() {
 
     let [posts, setPosts] = useState([])
-    let [postID,setPostID] = useState()
+    let [postID, setPostID] = useState()
     let navigate = useNavigate()
     const fetchPosts = async () => {
         let fetchedData = await axios.get('https://dummyjson.com/posts?limit=20');
@@ -28,8 +29,8 @@ function Blogs() {
     }
 
     const goToBlogDetails = (id) => {
-        console.log('Post :',id);
-        localStorage.setItem('postID',id)
+        console.log('Post :', id);
+        localStorage.setItem('postID', id)
         navigate('/blog-details')
         // <BlogDetails post={post} />
     }
@@ -52,7 +53,7 @@ function Blogs() {
                     {
                         posts.map((post, index) => {
                             return (
-                                <div className="blog_card" key={index} onClick={()=>goToBlogDetails(post?.id)}>
+                                <div className="blog_card" key={index} onClick={() => goToBlogDetails(post?.id)}>
                                     <h3 className="blog_title">{post?.title}</h3>
                                     <div className="blog_card_bottom">
                                         <Link to="/blogs-details" className='blog_read_more' >Read more</Link>
@@ -65,10 +66,10 @@ function Blogs() {
                             )
                         })
                     }
-                    
+
                 </div>
             </section>
-
+            <Footer />
         </>
 
     )

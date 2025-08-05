@@ -1,0 +1,41 @@
+footer {
+    position: relative;
+    background-color: black;
+    height: 40vh;
+    /* padding: 20px; */
+}
+
+.top_footer{
+    padding: 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer_media{
+    color: white;
+    display: flex;
+    gap: 1.5rem;
+    cursor: pointer;
+}
+.icon:hover{
+    color: #F6FF00;
+}
+.top_footer .footer_logo {
+    color: #F6FF00;
+
+    font-size: 4rem;
+    font-family: "Kaushan Script", cursive;
+
+}
+
+.bottom_footer .copyRights {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    translate: -50% ;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.7rem;
+    font-weight: 300;
+
+}
