@@ -1,4 +1,4 @@
-import { useState } from 'react'
+// import { useEffect, useState } from 'react'
 import './App.css'
 import Navbar from './Components/Navbar/Navbar'
 import SectionHero from './Components/SectionHero/sectionHero'
@@ -12,10 +12,10 @@ function App() {
 
   return (
     <>
-      
+
       <Routes>
         <Route path='/' element={<SectionHero />} />
-        <Route path='/blogs' element={<Blogs />} />
+        <Route path='/blogs' element={<Blogs  test="hicham" />} />
         <Route path='/blog-details' element={<BlogDetails />} />
       </Routes>
     </>
