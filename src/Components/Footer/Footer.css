@@ -1,41 +1,86 @@
 footer {
     position: relative;
     background-color: black;
-    height: 40vh;
-    /* padding: 20px; */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
 
-.top_footer{
+.top_footer {
     padding: 35px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
-.footer_media{
+
+.footer_media {
     color: white;
     display: flex;
     gap: 1.5rem;
     cursor: pointer;
 }
-.icon:hover{
+
+.icon:hover {
     color: #F6FF00;
 }
+
 .top_footer .footer_logo {
     color: #F6FF00;
-
     font-size: 4rem;
     font-family: "Kaushan Script", cursive;
+}
 
+.bottom_footer {
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
 }
 
 .bottom_footer .copyRights {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    translate: -50% ;
+    position: static;
+    transform: none;
+    left: auto;
     color: white;
     font-family: "Poppins", sans-serif;
     font-size: 0.7rem;
     font-weight: 300;
+    margin: 0;
+}
 
+/* ======================================= */
+/* Responsive styles */
+/* ======================================= */
+
+@media screen and (max-width: 768px) {
+    footer {
+        height: auto;
+        padding: 15px;
+    }
+
+    .top_footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+        padding: 15px;
+    }
+
+    .top_footer .footer_logo {
+        font-size: 2.5rem;
+    }
+
+    .footer_media {
+        gap: 1rem;
+    }
+
+    .bottom_footer {
+        padding: 15px 0;
+    }
+
+    .bottom_footer .copyRights {
+        font-size: 0.6rem;
+    }
 }

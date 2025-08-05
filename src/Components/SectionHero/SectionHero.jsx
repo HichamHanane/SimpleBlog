@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './sectionHero.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
@@ -6,15 +6,38 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus'
 import Navbar from '../Navbar/Navbar'
 import { faBlog } from '@fortawesome/free-solid-svg-icons/faBlog'
 import { useNavigate } from 'react-router-dom'
+import ReactDOM from 'react-dom';
+import Modal from 'react-modal';
+import { faClose } from '@fortawesome/free-solid-svg-icons/faClose'
+import AddForm from '../FormAddBlog/AddForm'
+import Popup from '../AddPopup/Popup'
 
+
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+  },
+};
 
 
 function SectionHero() {
   const navigate = useNavigate();
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
 
   const goToBlogs = () => {
-    console.log("hello world");
-
     navigate('/blogs')
   }
   return (
@@ -25,9 +48,12 @@ function SectionHero() {
         <p className="slogan">A simple platform to write and explore articles.</p>
         <div className="buttons">
           <button className="explore" onClick={() => goToBlogs()} ><FontAwesomeIcon icon={faBlog} /> Explore Blogs</button>
-          <button className="button_add_blog"><FontAwesomeIcon icon={faPlus} /> New blog</button>
+          <button className="button_add_blog" onClick={openModal}><FontAwesomeIcon icon={faPlus} /> New blog</button>
         </div>
       </section>
+      <div>
+        <Popup isOpen={modalIsOpen} setIsOpen={setIsOpen} close={closeModal}/>
+      </div>
     </>
   )
 }

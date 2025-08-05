@@ -1,0 +1,74 @@
+.header_modal{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: #F6FF00; */
+    /* margin-bottom: 0px; */
+    color: white;
+}
+.close_popup{
+    cursor: pointer;
+}
+
+.modal_headline{
+    font-family: "Poppins", sans-serif;
+    /* margin-top: 15px; */
+    font-weight: 400;
+}
+
+
+
+.error_message{
+    font-family: 'Poppins', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.7rem;
+    font-weight: 300;
+    color: white;
+}
+
+.modal_form{
+    margin-top: 25px;
+}
+
+.modal_form label{
+    font-family: "Poppins", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 300;
+}
+
+.modal_form input{
+    color: whitesmoke;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    border: 1px solid #F6FF00;
+    width: 100%;
+    /* padding: 10px; */
+    padding: 10px 0 10px 10px;
+}
+.modal_form textarea{
+    color: whitesmoke;
+    outline: none;
+
+    border: none;
+    background-color: transparent;
+    border: 1px solid #F6FF00;
+    width: 100%;
+    /* padding: 10px; */
+    padding: 10px 0 10px 10px;
+}
+
+.modal_form button{
+    cursor: pointer;
+    border: none;
+    background-color: #F6FF00;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    /* border: 1px solid #000000; */
+    width: 100%;
+    /* padding: 10px; */
+    padding: 10px 0 10px 10px;
+    transition: 0.3s;
+}
+.modal_form button:hover{
+    background-color: #f6ff00b7;
+}

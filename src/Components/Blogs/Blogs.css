@@ -1,3 +1,10 @@
+.container_section_blogs {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* background-color: blue; */
+}
+
 .section-blogs {
     padding: 0 35px;
     margin-top: 15px;
@@ -79,4 +86,129 @@
 
 .blog_likes {
     font-family: "Poppins", sans-serif;
+}
+
+
+
+
+/* L'animation de pulsation */
+@keyframes pulse-bg {
+    0% {
+        background-color: #3f3f3f;
+        /* Couleur de base du squelette */
+    }
+
+    50% {
+        background-color: #5a5a5a;
+        /* Couleur plus claire pour l'effet de pulsation */
+    }
+
+    100% {
+        background-color: #3f3f3f;
+    }
+}
+
+/* La carte de blog en état de chargement */
+.skeleton-blog-card {
+    position: relative;
+    width: 20%;
+    background-color: #3f3f3f;
+    border: 3px solid #F6FF00;
+    padding: 15px;
+    height: 5rem;
+    box-shadow: 10px 20px 15px rgba(0, 0, 0, 0.308);
+    animation: pulse-bg 1.5s infinite;
+    /* Applique l'animation de pulsation */
+    border-radius: 5px;
+    /* Ajout d'un petit border-radius pour correspondre aux cartes */
+}
+
+/* Le titre en état de chargement */
+.skeleton-blog-title {
+    height: 1.5rem;
+    /* Hauteur pour simuler le titre */
+    background-color: #5a5a5a;
+    width: 80%;
+    /* Largeur pour simuler un titre de longueur variable */
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+/* Le bas de la carte en état de chargement */
+.skeleton-blog-bottom {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Le bouton "Read more" en état de chargement */
+.skeleton-read-more {
+    height: 1rem;
+    background-color: #5a5a5a;
+    width: 40%;
+    border-radius: 4px;
+}
+
+/* Le nombre de likes en état de chargement */
+.skeleton-likes {
+    height: 1rem;
+    background-color: #5a5a5a;
+    width: 20%;
+    border-radius: 4px;
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .section-blogs {
+        padding: 0 15px;
+        /* Réduit l'espacement sur les côtés */
+    }
+
+    .section-blogs .blog_header h2 {
+        font-size: 2.5rem;
+        /* Réduit la taille du titre */
+        text-align: center;
+    }
+
+    .section-blogs .blog_header .slogan_blogs {
+        font-size: 0.9rem;
+        /* Réduit la taille du slogan */
+        text-align: center;
+    }
+
+    .blog_title {
+        display: block;
+        margin-bottom: 40px;
+
+    }
+
+    .blogs_container {
+        flex-direction: column;
+        /* Les cartes de blog s'empilent en colonne */
+        gap: 1.5rem;
+        /* Augmente l'espacement entre les cartes */
+        margin-top: 30px;
+    }
+
+
+    .blog_read_more {
+        visibility: hidden;
+    }
+
+    .blog_card {
+        width: 80%;
+        max-width: 400px;
+        height: 50%;
+    }
+
+    .skeleton-blog-card {
+        width: 80%;
+        max-width: 400px;
+        height: 50%;
+    }
 }

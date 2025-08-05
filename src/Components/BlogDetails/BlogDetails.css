@@ -1,3 +1,10 @@
+.blog_page_container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+     /* This ensures the container is at least the full height of the viewport */
+}
+
 .blog_details{
     display: flex;
     flex-direction: column;
@@ -7,7 +14,7 @@
     text-align: justify;
     /* background-color: blueviolet; */
     margin: 30px auto;
-    
+    flex-grow: 1; 
 }
 .blog_details_title{
     font-family: "Poppins", sans-serif;
@@ -54,4 +61,37 @@
     font-family: "Poppins", sans-serif;
     display: flex;
     align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+    .blog_details {
+        width: 90%; /* Prend 90% de la largeur sur les petits écrans */
+        margin: 20px auto; /* Ajuste la marge pour un meilleur espacement */
+    }
+
+    .blog_details_title {
+        font-size: 1.5rem; /* Réduit la taille du titre */
+        line-height: 1.2;
+        text-align: center; /* Centre le titre */
+    }
+
+    .tags {
+        justify-content: center; /* Centre les tags sur mobile */
+    }
+
+    .tags p {
+        font-size: 0.6rem; /* Réduit la taille de la police des tags */
+        padding: 4px 8px; /* Ajuste le padding des tags */
+    }
+
+    .blog_details_description {
+        font-size: 0.9rem; /* Réduit la taille de la police de la description */
+    }
+
+    .blog_details_bottom {
+        flex-direction: column; /* Passe en colonne pour mieux s'adapter */
+        align-items: flex-start; /* Aligne les éléments à gauche */
+        gap: 10px; /* Ajoute un espace entre les éléments */
+        margin-top: 20px;
+    }
 }

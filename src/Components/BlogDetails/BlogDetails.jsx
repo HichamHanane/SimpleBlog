@@ -23,7 +23,7 @@ function BlogDetails() {
         
     },[])
     return (
-        <>  
+        <div className='blog_page_container'>  
             <Navbar />
             <article className='blog_details'>
                 <h2 className="blog_details_title">{post?.title}</h2>
@@ -54,7 +54,7 @@ function BlogDetails() {
                 </div>
             </article>
             <Footer />
-        </>
+        </div>
     )
 }
 

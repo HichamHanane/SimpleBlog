@@ -14,17 +14,39 @@ function Blogs() {
 
     let [posts, setPosts] = useState([])
     let [postID, setPostID] = useState()
+    let [isLoading, setIsLoading] = useState(true);
     let navigate = useNavigate()
-    const fetchPosts = async () => {
-        let fetchedData = await axios.get('https://dummyjson.com/posts?limit=20');
-        let data = fetchedData.data.posts;
-        console.log('Posts : ', data);
-        localStorage.setItem('posts', JSON.stringify(data));
-        // posts = JSON.parse(localStorage.getItem('posts'))
-        setPosts(JSON.parse(localStorage.getItem('posts')))
-        console.log('Posts 2 :', posts);
 
-        return data;
+    
+    const renderSkeletonCards = () => {
+        // Crée un tableau de 10 cartes de squelette (ou le nombre que tu veux)
+        return Array.from({ length: 10 }).map((_, index) => (
+            <div className="skeleton-blog-card" key={index}>
+                <div className="skeleton-blog-title"></div>
+                <div className="skeleton-blog-bottom">
+                    <div className="skeleton-read-more"></div>
+                    <div className="skeleton-likes"></div>
+                </div>
+            </div>
+        ));
+    };
+    const fetchPosts = async () => {
+        try {
+            let fetchedData = await axios.get('https://dummyjson.com/posts?limit=20');
+            let data = fetchedData.data.posts;
+            setIsLoading(false)
+            console.log('Posts : ', data);
+            localStorage.setItem('posts', JSON.stringify(data));
+
+            setPosts(JSON.parse(localStorage.getItem('posts')))
+            console.log('Posts 2 :', posts);
+
+            return data;
+        } catch (error) {
+            console.log('Error fetching posts :', error);
+
+        }
+
 
     }
 
@@ -41,7 +63,7 @@ function Blogs() {
     // console.log('Blogs component : ', posts);
 
     return (
-        <>
+        <div className='container_section_blogs'>
             <Navbar />
             <section className='section-blogs'>
                 <div className="blog_header">
@@ -51,26 +73,29 @@ function Blogs() {
 
                 <div className="blogs_container">
                     {
-                        posts.map((post, index) => {
-                            return (
-                                <div className="blog_card" key={index} onClick={() => goToBlogDetails(post?.id)}>
-                                    <h3 className="blog_title">{post?.title}</h3>
-                                    <div className="blog_card_bottom">
-                                        <Link to="/blogs-details" className='blog_read_more' >Read more</Link>
-                                        <p className="blog_likes">
-                                            <FontAwesomeIcon icon={faThumbsUp} />
-                                            {post?.reactions?.likes}
-                                        </p>
+                        !isLoading ?
+                            posts.map((post, index) => {
+                                return (
+                                    <div className="blog_card" key={index} onClick={() => goToBlogDetails(post?.id)}>
+                                        <h3 className="blog_title">{post?.title}</h3>
+                                        <div className="blog_card_bottom">
+                                            <Link to="/blogs-details" className='blog_read_more' >Read more</Link>
+                                            <p className="blog_likes">
+                                                <FontAwesomeIcon icon={faThumbsUp} />
+                                                {post?.reactions?.likes}
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            )
-                        })
+                                )
+                            })
+                            :
+                            renderSkeletonCards()
                     }
 
                 </div>
             </section>
             <Footer />
-        </>
+        </div>
 
     )
 }
