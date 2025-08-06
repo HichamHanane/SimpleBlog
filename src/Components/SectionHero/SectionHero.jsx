@@ -29,13 +29,11 @@ function SectionHero() {
   const navigate = useNavigate();
   const [modalIsOpen, setIsOpen] = useState(false);
 
-  function openModal() {
-    setIsOpen(true);
+  function goToAddForm() {
+    navigate('/new-blog')
   }
 
-  function closeModal() {
-    setIsOpen(false);
-  }
+  
 
   const goToBlogs = () => {
     navigate('/blogs')
@@ -48,12 +46,12 @@ function SectionHero() {
         <p className="slogan">A simple platform to write and explore articles.</p>
         <div className="buttons">
           <button className="explore" onClick={() => goToBlogs()} ><FontAwesomeIcon icon={faBlog} /> Explore Blogs</button>
-          <button className="button_add_blog" onClick={openModal}><FontAwesomeIcon icon={faPlus} /> New blog</button>
+          <button className="button_add_blog" onClick={goToAddForm}><FontAwesomeIcon icon={faPlus} /> New blog</button>
         </div>
       </section>
-      <div>
+      {/* <div>
         <Popup isOpen={modalIsOpen} setIsOpen={setIsOpen} close={closeModal}/>
-      </div>
+      </div> */}
     </>
   )
 }

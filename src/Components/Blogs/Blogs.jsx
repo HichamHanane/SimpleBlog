@@ -10,11 +10,11 @@ import BlogDetails from '../BlogDetails/BlogDetails'
 import Footer from '../Footer/Footer'
 
 
-function Blogs() {
+function Blogs({posts , isLoading}) {
 
-    let [posts, setPosts] = useState([])
+    // let [posts, setPosts] = useState([])
     let [postID, setPostID] = useState()
-    let [isLoading, setIsLoading] = useState(true);
+    // let [isLoading, setIsLoading] = useState(true);
     let navigate = useNavigate()
 
     
@@ -30,25 +30,27 @@ function Blogs() {
             </div>
         ));
     };
-    const fetchPosts = async () => {
-        try {
-            let fetchedData = await axios.get('https://dummyjson.com/posts?limit=20');
-            let data = fetchedData.data.posts;
-            setIsLoading(false)
-            console.log('Posts : ', data);
-            localStorage.setItem('posts', JSON.stringify(data));
-
-            setPosts(JSON.parse(localStorage.getItem('posts')))
-            console.log('Posts 2 :', posts);
-
-            return data;
-        } catch (error) {
-            console.log('Error fetching posts :', error);
-
-        }
 
 
-    }
+    // const fetchPosts = async () => {
+    //     try {
+    //         let fetchedData = await axios.get('https://dummyjson.com/posts?limit=20');
+    //         let data = fetchedData.data.posts;
+    //         setIsLoading(false)
+    //         console.log('Posts : ', data);
+    //         localStorage.setItem('posts', JSON.stringify(data));
+
+    //         setPosts(JSON.parse(localStorage.getItem('posts')))
+    //         console.log('Posts 2 :', posts);
+
+    //         return data;
+    //     } catch (error) {
+    //         console.log('Error fetching posts :', error);
+
+    //     }
+
+
+    // }
 
     const goToBlogDetails = (id) => {
         console.log('Post :', id);
@@ -57,9 +59,9 @@ function Blogs() {
         // <BlogDetails post={post} />
     }
 
-    useEffect(() => {
-        fetchPosts();
-    }, [])
+    // useEffect(() => {
+    //     fetchPosts();
+    // }, [])
     // console.log('Blogs component : ', posts);
 
     return (
@@ -74,7 +76,7 @@ function Blogs() {
                 <div className="blogs_container">
                     {
                         !isLoading ?
-                            posts.map((post, index) => {
+                            posts?.map((post, index) => {
                                 return (
                                     <div className="blog_card" key={index} onClick={() => goToBlogDetails(post?.id)}>
                                         <h3 className="blog_title">{post?.title}</h3>

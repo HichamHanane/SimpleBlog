@@ -2,24 +2,21 @@ import React, { useState } from 'react'
 import './navbar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Popup from '../AddPopup/Popup'
 
 function Navbar() {
-
+  const navigate = useNavigate()
   const [modalIsOpen, setIsOpen] = useState(false);
 
-  function openModal() {
-    setIsOpen(true);
+  function goToAddForm() {
+    navigate('/new-blog')
   }
 
-  function closeModal() {
-    setIsOpen(false);
-  }
 
-  const goToBlogs = () => {
-    navigate('/blogs')
-  }
+  // const goToBlogs = () => {
+  //   navigate('/blogs')
+  // }
   return (
     <>
       <header className="header">
@@ -30,11 +27,11 @@ function Navbar() {
         </div>
         <nav className='navLinks'>
           <Link to="/blogs" className='navLink'>Blogs</Link>
-          <button onClick={openModal}><FontAwesomeIcon icon={faPlus} size='xs' /> New blog</button>
+          <button onClick={goToAddForm}><FontAwesomeIcon icon={faPlus} size='xs' /> New blog</button>
         </nav>
       </header>
 
-      <Popup isOpen={modalIsOpen} setIsOpen={setIsOpen} close={closeModal} />
+      {/* <Popup isOpen={modalIsOpen} setIsOpen={setIsOpen} close={closeModal} /> */}
 
     </>
   )

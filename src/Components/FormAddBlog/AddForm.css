@@ -1,42 +1,51 @@
-.header_modal{
+.addForm_container {
+    margin: 30px auto;
+    width: 40%;
+    max-width: 600px;
+}
+
+.header_modal {
     display: flex;
     justify-content: space-between;
     align-items: center;
     /* background-color: #F6FF00; */
     /* margin-bottom: 0px; */
-    color: white;
+    color: black;
 }
-.close_popup{
+
+.close_popup {
     cursor: pointer;
 }
 
-.modal_headline{
+.modal_headline {
     font-family: "Poppins", sans-serif;
     /* margin-top: 15px; */
-    font-weight: 400;
+    font-weight: 500;
+    font-size: 2rem;
 }
 
 
 
-.error_message{
+.error_message {
     font-family: 'Poppins', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 0.7rem;
     font-weight: 300;
-    color: white;
+    color: rgba(255, 0, 0, 0.856);
 }
 
-.modal_form{
+.modal_form {
     margin-top: 25px;
+    width: 100%;
 }
 
-.modal_form label{
+.modal_form label {
     font-family: "Poppins", sans-serif;
     font-size: 0.8rem;
     font-weight: 300;
 }
 
-.modal_form input{
-    color: whitesmoke;
+.modal_form input {
+    color: black;
     outline: none;
     border: none;
     background-color: transparent;
@@ -45,8 +54,9 @@
     /* padding: 10px; */
     padding: 10px 0 10px 10px;
 }
-.modal_form textarea{
-    color: whitesmoke;
+
+.modal_form textarea {
+    color: black;
     outline: none;
 
     border: none;
@@ -57,7 +67,7 @@
     padding: 10px 0 10px 10px;
 }
 
-.modal_form button{
+.modal_form button {
     cursor: pointer;
     border: none;
     background-color: #F6FF00;
@@ -65,10 +75,36 @@
     font-weight: 500;
     /* border: 1px solid #000000; */
     width: 100%;
+
     /* padding: 10px; */
     padding: 10px 0 10px 10px;
     transition: 0.3s;
 }
-.modal_form button:hover{
+
+.modal_form button:hover {
     background-color: #f6ff00b7;
+}
+
+@media screen and (max-width: 768px) {
+    .addForm_container {
+        width: 90%; /* Prend 90% de la largeur sur les petits écrans */
+        margin: 20px auto; /* Ajuste la marge pour un meilleur espacement */
+    }
+
+    .modal_headline {
+        font-size: 1.5rem; /* Réduit la taille du titre */
+    }
+
+    .modal_form label {
+        font-size: 0.7rem; /* Réduit la taille de la police des étiquettes */
+    }
+
+    .modal_form input, .modal_form textarea {
+        padding: 8px; /* Réduit le padding des champs de saisie */
+    }
+
+    .addForm_button {
+        font-size: 0.9rem; /* Réduit la taille de la police du bouton */
+        padding: 8px; /* Réduit le padding du bouton */
+    }
 }
