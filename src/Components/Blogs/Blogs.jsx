@@ -8,16 +8,19 @@ import { faThumbsUp } from '@fortawesome/free-regular-svg-icons'
 import axios from 'axios'
 import BlogDetails from '../BlogDetails/BlogDetails'
 import Footer from '../Footer/Footer'
+import Pagination from '../Pagination/Pagination'
 
 
-function Blogs({posts , isLoading}) {
+function Blogs({ posts, isLoading }) {
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postsPerPage] = useState(12); 
 
     // let [posts, setPosts] = useState([])
     let [postID, setPostID] = useState()
     // let [isLoading, setIsLoading] = useState(true);
     let navigate = useNavigate()
 
-    
+
     const renderSkeletonCards = () => {
         // Crée un tableau de 10 cartes de squelette (ou le nombre que tu veux)
         return Array.from({ length: 10 }).map((_, index) => (
@@ -64,6 +67,15 @@ function Blogs({posts , isLoading}) {
     // }, [])
     // console.log('Blogs component : ', posts);
 
+    
+    const indexOfLastPost = currentPage * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+
+    // We use .slice() to get the specific posts for the current page from the main `posts` array.
+    const currentPosts = posts?.slice(indexOfFirstPost, indexOfLastPost);
+
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
     return (
         <div className='container_section_blogs'>
             <Navbar />
@@ -76,7 +88,7 @@ function Blogs({posts , isLoading}) {
                 <div className="blogs_container">
                     {
                         !isLoading ?
-                            posts?.map((post, index) => {
+                            currentPosts?.map((post, index) => {
                                 return (
                                     <div className="blog_card" key={index} onClick={() => goToBlogDetails(post?.id)}>
                                         <h3 className="blog_title">{post?.title}</h3>
@@ -95,6 +107,14 @@ function Blogs({posts , isLoading}) {
                     }
 
                 </div>
+                {
+                    !isLoading && posts?.length > 0 &&
+                    <Pagination
+                        postsPerPage={postsPerPage}
+                        totalPosts={posts?.length}
+                        paginate={paginate}
+                    />
+                }
             </section>
             <Footer />
         </div>

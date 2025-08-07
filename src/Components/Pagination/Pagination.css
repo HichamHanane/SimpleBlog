@@ -1,0 +1,36 @@
+/* src/Components/Pagination/Pagination.css */
+
+.pagination_nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 45px;
+    margin-bottom: 40px;
+    /* background-color: blue; */
+}
+
+.pagination_list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.pagination_item {
+    margin: 0 5px;
+}
+
+.pagination_link {
+    display: block;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #333;
+    background-color: white;
+    border: 1px solid #F6FF00;
+    border-radius: 5px;
+    font-family: "Poppins", sans-serif;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.pagination_link:hover {
+    background-color: #ddd;
+}

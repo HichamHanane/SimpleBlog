@@ -29,11 +29,14 @@ function AddForm({ setIsOpen, addPostToState }) {
                     title,
                     body: description,
                     tags: ["sport", 'Tech'],
-                    reactions: { likes: 33, dislikes: 10 },
+                    reactions: { likes: Math.floor(Math.random() * 100), dislikes: Math.floor(Math.random() * 100)},
                     userId: 45,
-                    views: 49
+                    views: Math.floor(Math.random() * 1000)
                 }
+                console.log('BODY :' , body);
+                
                 let addBlog = await axios.post('https://dummyjson.com/posts/add', body);
+                console.log('Add new blog :', addBlog);
 
                 if (addBlog.status == 201) {
                     console.log('message', addBlog);
@@ -46,7 +49,7 @@ function AddForm({ setIsOpen, addPostToState }) {
                     navigate('/blogs')
                     // window.location.href = '/blogs';
                 }
-                console.log('Add new blog :', addBlog);
+                
 
                 return;
             }
@@ -74,7 +77,7 @@ function AddForm({ setIsOpen, addPostToState }) {
     }
 
     return (
-        <>
+        <div className='section_addForm_container'>
             <Navbar />
             <div className='addForm_container'>
                 <div className="header_modal">
@@ -97,7 +100,7 @@ function AddForm({ setIsOpen, addPostToState }) {
             </div>
             <Footer />
             {/* <Toaster richColors position='top-center'/> */}
-        </>
+        </div>
     )
 }
 

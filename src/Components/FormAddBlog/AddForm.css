@@ -1,3 +1,11 @@
+.section_addForm_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+
+
 .addForm_container {
     margin: 30px auto;
     width: 40%;
@@ -87,24 +95,32 @@
 
 @media screen and (max-width: 768px) {
     .addForm_container {
-        width: 90%; /* Prend 90% de la largeur sur les petits écrans */
-        margin: 20px auto; /* Ajuste la marge pour un meilleur espacement */
+        width: 90%;
+        /* Prend 90% de la largeur sur les petits écrans */
+        margin: 20px auto;
+        /* Ajuste la marge pour un meilleur espacement */
     }
 
     .modal_headline {
-        font-size: 1.5rem; /* Réduit la taille du titre */
+        font-size: 1.5rem;
+        /* Réduit la taille du titre */
     }
 
     .modal_form label {
-        font-size: 0.7rem; /* Réduit la taille de la police des étiquettes */
+        font-size: 0.7rem;
+        /* Réduit la taille de la police des étiquettes */
     }
 
-    .modal_form input, .modal_form textarea {
-        padding: 8px; /* Réduit le padding des champs de saisie */
+    .modal_form input,
+    .modal_form textarea {
+        padding: 8px;
+        /* Réduit le padding des champs de saisie */
     }
 
     .addForm_button {
-        font-size: 0.9rem; /* Réduit la taille de la police du bouton */
-        padding: 8px; /* Réduit le padding du bouton */
+        font-size: 0.9rem;
+        /* Réduit la taille de la police du bouton */
+        padding: 8px;
+        /* Réduit le padding du bouton */
     }
 }

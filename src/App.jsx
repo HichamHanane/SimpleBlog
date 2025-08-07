@@ -29,7 +29,7 @@ function App() {
         return;
       }
 
-      let fetchedData = await axios.get('https://dummyjson.com/posts?limit=20');
+      let fetchedData = await axios.get('https://dummyjson.com/posts?limit=30');
       let data = fetchedData.data.posts;
       setIsLoading(false)
       console.log('Posts : ', data);

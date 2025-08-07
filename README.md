@@ -24,7 +24,7 @@ SimpleBlog est une application de blog minimaliste construite avec React. Elle p
 * **React :** Bibliothèque JavaScript pour la construction d'interfaces utilisateur.
 * **React Router DOM :** Pour gérer la navigation entre les différentes pages (liste, détail, formulaire).
 * **CSS :** Pour le style de l'application.
-* **API simulée :** [JSONPlaceholder](https://jsonplaceholder.typicode.com/) pour la récupération des données d'articles.
+* **API simulée :**pour la récupération des données d'articles.
 
 ---
 
